@@ -12,8 +12,8 @@ import com.kennethmanuel.a160419041_uts.viewmodel.RecipeModel
 import kotlinx.android.synthetic.main.fragment_discover_recipes.*
 
 class DiscoverRecipesFragment : Fragment() {
-    private lateinit var viewModel: RecipeModel
-    private val recipeListAdapter = RecipesListAdapter(arrayListOf())
+//    private lateinit var viewModel: RecipeModel
+//    private val recipeListAdapter = RecipesListAdapter(arrayListOf())
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,33 +25,33 @@ class DiscoverRecipesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        buttonFilter.setOnClickListener{
-            val action = DiscoverRecipesFragmentDirections.actionItemDiscoverRecipesToSortDialogFragment()
-            Navigation.findNavController(it).navigate(action)
-        }
-
-        floatingActionButtonAddRecipes.setOnClickListener{
-            val action = DiscoverRecipesFragmentDirections.actionItemDiscoverRecipesToItemAddRecipes()
-            Navigation.findNavController(it).navigate(action)
-        }
-
-        viewModel = ViewModelProvider(this).get(RecipeModel::class.java)
-        viewModel.refresh()
-
-        recView.layoutManager = LinearLayoutManager(context)
-        recView.adapter = recipeListAdapter
-
-        refreshLayout.setOnRefreshListener {
-            recView.visibility = View.GONE
-            viewModel.refresh()
-            refreshLayout.isRefreshing = false
-        }
-        observeViewModel()
+//        buttonFilter.setOnClickListener{
+//            val action = DiscoverRecipesFragmentDirections.actionItemDiscoverRecipesToSortDialogFragment()
+//            Navigation.findNavController(it).navigate(action)
+//        }
+//
+//        floatingActionButtonAddRecipes.setOnClickListener{
+//            val action = DiscoverRecipesFragmentDirections.actionItemDiscoverRecipesToItemAddRecipes()
+//            Navigation.findNavController(it).navigate(action)
+//        }
+//
+//        viewModel = ViewModelProvider(this).get(RecipeModel::class.java)
+//        viewModel.refresh()
+//
+//        recView.layoutManager = LinearLayoutManager(context)
+//        recView.adapter = recipeListAdapter
+//
+//        refreshLayout.setOnRefreshListener {
+//            recView.visibility = View.GONE
+//            viewModel.refresh()
+//            refreshLayout.isRefreshing = false
+//        }
+//        observeViewModel()
     }
 
-    fun observeViewModel(){
-        viewModel.recipeLD.observe(viewLifecycleOwner, Observer {
-            recipeListAdapter.updateRecipesList(it)
-        })
-    }
+//    fun observeViewModel(){
+//        viewModel.recipeLD.observe(viewLifecycleOwner, Observer {
+//            recipeListAdapter.updateRecipesList(it)
+//        })
+//    }
 }
