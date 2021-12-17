@@ -26,15 +26,15 @@ class FavoriteListAdapter(private val recipeList: ArrayList<Recipe>):RecyclerVie
     }
 
     override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) {
-        holder.view.textRecipeName.text = recipeList[position].name.toString()
-        holder.view.imgFood.loadImage(recipeList[position].picURL.toString(), holder.view.progressBar)
-        holder.view.textCoursesType.text = recipeList[position].category.toString()
-
-        holder.view.buttonViewRecipe.setOnClickListener {
-            val id = recipeList[position].id.toString()
-            val action = DiscoverRecipesFragmentDirections.actionItemDiscoverRecipesToRecipesDetailFragment()
-            Navigation.findNavController(it).navigate(action)
-        }
+//        holder.view.textRecipeName.text = recipeList[position].name.toString()
+//        holder.view.imgFood.loadImage(recipeList[position].picURL.toString(), holder.view.progressBar)
+//        holder.view.textCoursesType.text = recipeList[position].category.toString()
+//
+//        holder.view.buttonViewRecipe.setOnClickListener {
+//            val id = recipeList[position].id.toString()
+//            val action = DiscoverRecipesFragmentDirections.actionItemDiscoverRecipesToRecipesDetailFragment()
+//            Navigation.findNavController(it).navigate(action)
+//        }
 
     }
 

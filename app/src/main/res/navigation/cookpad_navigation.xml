@@ -60,6 +60,9 @@
         <action
             android:id="@+id/action_recipesDetailFragment_to_itemFavoriteRecipes"
             app:destination="@id/itemFavoriteRecipes" />
+        <argument
+            android:name="uuid"
+            app:argType="integer" />
     </fragment>
     <dialog
         android:id="@+id/sortDialogFragment"

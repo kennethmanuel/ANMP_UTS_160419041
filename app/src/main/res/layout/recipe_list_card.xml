@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
+    <data>
+        <variable
+            name="recipe"
+            type="com.kennethmanuel.a160419041_uts.model.Recipes" />
+        <variable
+            name="listener"
+            type="com.kennethmanuel.a160419041_uts.view.RecipeCardToDetail" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="24dp"
-            android:layout_marginBottom="8dp"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="10dp"
+            android:layout_height="299dp"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginRight="23dp"
+            android:layout_marginBottom="7dp"
+            app:cardCornerRadius="9dp"
+            app:cardElevation="9dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,9 +37,11 @@
 
                 <ImageView
                     android:id="@+id/imgFood"
-                    android:layout_width="0dp"
-                    android:layout_height="150dp"
+                    android:layout_width="-1dp"
+                    android:layout_height="149dp"
                     android:scaleType="centerCrop"
+                    android:imageUrl="@{recipe.picURL}"
+                    android:progressBar="@{progressBar}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -40,34 +51,39 @@
                     android:id="@+id/textRecipeName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="15dp"
                     android:fontFamily="sans-serif-medium"
-                    android:text="Recipe Name"
-                    android:textSize="24sp"
+                    android:text="@{recipe.name}"
+                    android:textSize="23sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imgFood" />
+                    app:layout_constraintTop_toBottomOf="@+id/imgFood"
+                    android:layout_marginLeft="15dp" />
 
                 <TextView
                     android:id="@+id/textCoursesType"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:text="Courses type"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="7dp"
+                    android:text="@{recipe.category}"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textRecipeName" />
+                    app:layout_constraintTop_toBottomOf="@+id/textRecipeName"
+                    android:layout_marginLeft="15dp" />
 
                 <Button
                     android:id="@+id/buttonViewRecipe"
                     style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
                     android:text="View Recipe"
+                    android:tag="@{recipe.uuid}"
+                    android:onClick="@{listener::onRecipeCardToDetail}"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textCoursesType" />
+                    app:layout_constraintTop_toBottomOf="@+id/textCoursesType"
+                    android:layout_marginRight="15dp" />
 
                 <ProgressBar
                     android:id="@+id/progressBar"
@@ -81,17 +97,19 @@
 
                 <ToggleButton
                     android:id="@+id/buttonFavorite"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_width="29dp"
+                    android:layout_height="29dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginEnd="15dp"
                     android:background="@drawable/button_favorite"
                     android:textOff=""
                     android:textOn=""
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imgFood" />
+                    app:layout_constraintTop_toBottomOf="@+id/imgFood"
+                    android:layout_marginRight="15dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
+
