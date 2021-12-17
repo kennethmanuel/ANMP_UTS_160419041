@@ -48,9 +48,11 @@ val MIGRATION_2_3=object :Migration(2,3) {
     }
 }
 
-@BindingAdapter("android:imageUrl", "android:progressBar")
-fun loadPhotoURL(v: ImageView, url: String?, pb: ProgressBar) {
-    if(url != null) {
-        v.loadImage(url!!, pb)
+@BindingAdapter("android:imageUrl","android:progressBar")
+fun loadPhotoURL(v:ImageView,url:String?,pb:ProgressBar)
+{
+    if(url!=null)
+    {
+        v.loadImage(url!!,pb)
     }
 }
